@@ -1,10 +1,14 @@
-//Timer Mechanism//
-var seconds = Math.floor((distance % (1000 * 30)) / 1000);
-
+//variables//
+var correct=0;
+var incorrect=0;
+var noAnswer=0;
 setTimeout(twentySeconds, 1000 * 20);
 setTimeout(twentyFiveSeconds, 1000 * 25);
 setTimeout(timeUp, 1000 * 30);
 
+function setTimer () {
+    $("#timer").append(seconds); 
+}
 function twentySeconds() {
     alert("About 10 Seconds Left!");
     console.log("10 seconds left");
@@ -21,10 +25,31 @@ function timeUp() {
 }
 
 //checking questions//
-//variables//
-var correct=0;
-var incorrect=0;
-var noAnswer=0;
+$(document).ready(function(){
+    $('input:radio[name="question_1"]').change(function(){
+        var Q1Correct = $("input[name='question_1']:checked").val();
+        var Q1Incorrect = $("input[name='question_1']:checked").val();
+        if (Q1Correct){
+            correct++;
+        }
+        if (Q1Incorrect) {
+            incorrect++;
+        }
+
+    $('input:radio[name="question_2"]').change(function(){
+        if($(this.checked && this.value == "false")){
+            correct++;
+        }
+        else if ($(this.checked && this.value == "true")){
+            incorrect++;
+        }
+})})});
+
+
+
+
+
+
 //after submit is clicked, show scoreboard(), show vars correct, incorrect//
 $(".submit").on("click", function(){
     $(".correct").append("Correct: " + correct);
@@ -34,5 +59,4 @@ $(".submit").on("click", function(){
 function scoreboard () {
     $(".correct").append("Correct: " + correct);
     $(".incorrect").append("Incorrect: " + incorrect);
-    $(".noAnswer").append("No Response: " + noAnswer);
-}
+    $(".noAnswer").append("No Response: " + noAnswer);};
