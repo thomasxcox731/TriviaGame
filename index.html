@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dayton Flyers Trivia</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
@@ -13,8 +14,13 @@
         <h1>Dayton Flyers Basketball Trivia Game</h1>
     </div>
     <div class=container>
-        <div id="time-left"></div>
+        <div id="timer"></div>
     </div>
+    <div class=container id="scoreboard">
+            <div class="correct"></div><br>
+            <div class="incorrect"></div><br>
+            <div class="noAnswer"></div><br>
+        </div>    
     <div class=container>
         <div class=question1>
             <p>Question 1: The University of Dayton was established in 1842.</p>
@@ -56,17 +62,17 @@
         <div class=question8>
             <p>Question 8: To date, The Dayton Flyers have made 18 appearances in the NCAA Tournament.</p>
             <input type="radio" name="answerId" value="true">True<br>
-            <input type="radio" name="answerId" value="false">False<br>
+            <input type="radio" name="answerId" value="false">False<br><br>
         </div>
         <div class=submit>
-            <input type="submit" value="submit">
+            <input type="submit" value="Submit"><br><br>
         </div>
     </div>
-    <div class=container>
-        <div class="correct"></div>
-        <div class="incorrect"></div>
-        <div class="noAnswer"></div>
-    </div>
+    <!-- <div class=container>
+        <div class="correct"></div><br>
+        <div class="incorrect"></div><br>
+        <div class="noAnswer"></div><br>
+    </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>

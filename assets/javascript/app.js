@@ -1,19 +1,21 @@
 //Timer Mechanism//
+var seconds = Math.floor((distance % (1000 * 30)) / 1000);
+
 setTimeout(twentySeconds, 1000 * 20);
 setTimeout(twentyFiveSeconds, 1000 * 25);
 setTimeout(timeUp, 1000 * 30);
 
 function twentySeconds() {
-    $("#time-left").append("<h2>About 10 Seconds Left!</h2>");
+    alert("About 10 Seconds Left!");
     console.log("10 seconds left");
 }
 function twentyFiveSeconds() {
-    $("#time-left").append("<h2>About 5 Seconds Left!</h2>");
+    alert("About 5 Seconds Left!");
     console.log("5 seconds left");
 }
 
 function timeUp() {
-    $("#time-left").append("<h2>Time's Up!</h2>");
+    alert("Time's Up!");
     console.log("time is up");
     scoreboard();
 }
@@ -29,3 +31,8 @@ $(".submit").on("click", function(){
     $(".incorrect").append("Incorrect: " + incorrect);
     $(".noAnswer").append("No Response: " + noAnswer);
 })
+function scoreboard () {
+    $(".correct").append("Correct: " + correct);
+    $(".incorrect").append("Incorrect: " + incorrect);
+    $(".noAnswer").append("No Response: " + noAnswer);
+}
