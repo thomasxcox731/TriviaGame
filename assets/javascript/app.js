@@ -2,6 +2,7 @@
 var correct=0;
 var incorrect=0;
 var noAnswer=0;
+userGuess = "";
 setTimeout(twentySeconds, 1000 * 20);
 setTimeout(twentyFiveSeconds, 1000 * 25);
 setTimeout(timeUp, 1000 * 30);
@@ -26,13 +27,14 @@ function timeUp() {
 
 //checking questions//
 $(document).ready(function(){
-    $('input:radio[name="question_1"]').change(function(){
-        var Q1Correct = $("input[name='question_1']:checked").val();
-        var Q1Incorrect = $("input[name='question_1']:checked").val();
+    // $('input:radio[name="question_1"]').change(function(){
+        $("input [type = 'radio']").click(function (){
+        var Q1Correct = $("input[name='question_1']:checked").val("false");
+        var Q1Incorrect = $("input[name='question_1']:checked").val("true");
         if (Q1Correct){
             correct++;
         }
-        if (Q1Incorrect) {
+        else if (Q1Incorrect) {
             incorrect++;
         }
 
@@ -43,14 +45,15 @@ $(document).ready(function(){
         else if ($(this.checked && this.value == "true")){
             incorrect++;
         }
-})})});
+})
+})});
 
 
 
 
 
 
-//after submit is clicked, show scoreboard(), show vars correct, incorrect//
+//after submit is clicked
 $(".submit").on("click", function(){
     $(".correct").append("Correct: " + correct);
     $(".incorrect").append("Incorrect: " + incorrect);
